@@ -21,6 +21,7 @@ class App extends Component {
       console.log('touchstart', event);
       if (event.touches.length === 2) {
         event.preventDefault();
+        alert('cate touches la touchstart? ' + event.touches.length);
 
         // Calculate where the fingers have started on the X and Y axis
         start.x = (event.touches[0].pageX + event.touches[1].pageX) / 2;
@@ -30,22 +31,9 @@ class App extends Component {
     });
 
     imageElement.addEventListener('touchmove', (event) => {
-      // const a = {
-      //   touches: [
-      //     {
-      //       pageX: 12.4,
-      //       pageY: 4.5,
-      //     },
-      //     {
-      //       pageX: 7.4,
-      //       pageY: 2.5,
-      //     },
-      //   ],
-      // };
-      // console.log(event);
-      // console.log(this.distanceBetweenTouches(event));
       console.log('touchmove', event);
       if (event.touches.length === 2) {
+        alert('cate touches la touchmove? ' + event.touches.length);
         event.preventDefault();
         let scale;
 
@@ -56,7 +44,7 @@ class App extends Component {
         } else {
           const deltaDistance = this.distanceBetweenTouches(event);
           scale = deltaDistance / start.distance;
-          alert(deltaDistance + ', ' + start.distance + ', ' + scale);
+          // alert(deltaDistance + ', ' + start.distance + ', ' + scale);
         }
 
         imageElementScale = Math.min(Math.max(1, scale), 4);
