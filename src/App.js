@@ -33,6 +33,7 @@ class App extends Component {
       console.log('touchmove', event);
       if (event.touches.length === 2) {
         event.preventDefault();
+        alert('should perform transform1');
         let scale;
 
         // Safari provides event.scale as two fingers move on the screen
@@ -55,6 +56,8 @@ class App extends Component {
         imageElement.style.transform = transform;
         imageElement.style.WebkitTransform = transform;
         imageElement.style.zIndex = "9999";
+
+        alert('should perform transform2');
       }
     });
 
