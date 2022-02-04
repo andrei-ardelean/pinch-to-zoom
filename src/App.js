@@ -56,6 +56,7 @@ class App extends Component {
         } else {
           const deltaDistance = this.distanceBetweenTouches(event);
           scale = deltaDistance / start.distance;
+          alert(deltaDistance + ', ' + start.distance + ', ' + scale);
         }
 
         imageElementScale = Math.min(Math.max(1, scale), 4);
@@ -64,7 +65,7 @@ class App extends Component {
         const deltaX = (((event.touches[0].pageX + event.touches[1].pageX) / 2) - start.x) * 2; // x2 for accelarated movement
         const deltaY = (((event.touches[0].pageY + event.touches[1].pageY) / 2) - start.y) * 2; // x2 for accelarated movement
 
-        alert(deltaX + ', ' + deltaY + ', ' + imageElementScale);
+        //alert(deltaX + ', ' + deltaY + ', ' + imageElementScale);
 
         // Transform the image to make it grow and move with fingers
         const transform = `translate3d(${deltaX}px, ${deltaY}px, 0) scale(${imageElementScale})`;
