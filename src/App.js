@@ -65,6 +65,7 @@ class App extends Component {
 
     imageElement.addEventListener('touchend', (event) => {
       console.log('touchend', event);
+      alert('touchend');
 
       // Reset image to it's original format
       imageElement.style.transform = "";
