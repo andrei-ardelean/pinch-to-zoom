@@ -41,8 +41,8 @@ class App extends Component {
         //   scale = event.scale;
         // } else {
         
-        const deltaDistance = this.distanceBetweenTouches(event);
         alert('should perform transform11');
+        const deltaDistance = this.distanceBetweenTouches(event);
         scale = deltaDistance / start.distance;
         // }
 
