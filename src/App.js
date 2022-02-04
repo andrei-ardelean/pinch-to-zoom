@@ -33,7 +33,6 @@ class App extends Component {
       console.log('touchmove', event);
       if (event.touches.length === 2) {
         event.preventDefault();
-        alert('should perform transform1');
         let scale;
 
         // Safari provides event.scale as two fingers move on the screen
@@ -51,10 +50,12 @@ class App extends Component {
         const deltaX = (((event.touches[0].pageX + event.touches[1].pageX) / 2) - start.x) * 2; // x2 for accelarated movement
         const deltaY = (((event.touches[0].pageY + event.touches[1].pageY) / 2) - start.y) * 2; // x2 for accelarated movement
 
+        alert('should perform transform11');
+
         // Transform the image to make it grow and move with fingers
         const transform = `translate3d(${deltaX}px, ${deltaY}px, 0) scale(${imageElementScale})`;
         imageElement.style.transform = transform;
-        imageElement.style.WebkitTransform = transform;
+        // imageElement.style.WebkitTransform = transform;
         imageElement.style.zIndex = "9999";
 
         alert('should perform transform2');
