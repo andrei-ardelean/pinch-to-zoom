@@ -10,7 +10,7 @@ class App extends Component {
     return Math.hypot(x, y);
   }
 
-  handlePinchToZoom() {
+  handlePinchToZoom = () => { // arrow function
     const imageElement = document.getElementById('pinch');
     console.log(imageElement);
 
@@ -30,6 +30,20 @@ class App extends Component {
     });
 
     imageElement.addEventListener('touchmove', (event) => {
+      // const a = {
+      //   touches: [
+      //     {
+      //       pageX: 12.4,
+      //       pageY: 4.5,
+      //     },
+      //     {
+      //       pageX: 7.4,
+      //       pageY: 2.5,
+      //     },
+      //   ],
+      // };
+      // console.log(event);
+      // console.log(this.distanceBetweenTouches(event));
       console.log('touchmove', event);
       if (event.touches.length === 2) {
         event.preventDefault();
@@ -37,14 +51,13 @@ class App extends Component {
 
         // Safari provides event.scale as two fingers move on the screen
         // For other browsers just calculate the scale manually
-        // if (event.scale) {
-        //   scale = event.scale;
-        // } else {
-        
-        alert('should perform transform11');
-        const deltaDistance = this.distanceBetweenTouches(event);
-        scale = deltaDistance / start.distance;
-        // }
+        if (event.scale) {
+          scale = event.scale;
+        } else {
+          const deltaDistance = this.distanceBetweenTouches(event); // aici crapa
+          alert('should perform transform11');
+          scale = deltaDistance / start.distance;
+        }
 
         imageElementScale = Math.min(Math.max(1, scale), 4);
 
