@@ -37,12 +37,14 @@ class App extends Component {
 
         // Safari provides event.scale as two fingers move on the screen
         // For other browsers just calculate the scale manually
-        if (event.scale) {
-          scale = event.scale;
-        } else {
-          const deltaDistance = this.distanceBetweenTouches(event);
-          scale = deltaDistance / start.distance;
-        }
+        // if (event.scale) {
+        //   scale = event.scale;
+        // } else {
+        
+        const deltaDistance = this.distanceBetweenTouches(event);
+        alert('should perform transform11');
+        scale = deltaDistance / start.distance;
+        // }
 
         imageElementScale = Math.min(Math.max(1, scale), 4);
 
@@ -50,7 +52,6 @@ class App extends Component {
         const deltaX = (((event.touches[0].pageX + event.touches[1].pageX) / 2) - start.x) * 2; // x2 for accelarated movement
         const deltaY = (((event.touches[0].pageY + event.touches[1].pageY) / 2) - start.y) * 2; // x2 for accelarated movement
 
-        alert('should perform transform11');
 
         // Transform the image to make it grow and move with fingers
         const transform = `translate3d(${deltaX}px, ${deltaY}px, 0) scale(${imageElementScale})`;
