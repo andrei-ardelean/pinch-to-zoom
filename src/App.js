@@ -35,8 +35,8 @@ class App extends Component {
       if (event.touches.length === 2) {
         // alert('cate touches la touchmove? ' + event.touches.length);
         event.preventDefault();
-        alert(event.touches[0].pageX + ' ' + event.touches[0].pageY);
-        alert(event.touches[1].pageX + ' ' + event.touches[1].pageY);
+        //alert(event.touches[0].pageX + ' ' + event.touches[0].pageY);
+        //alert(event.touches[1].pageX + ' ' + event.touches[1].pageY);
 
         let scale;
         if (event.scale) {
@@ -65,7 +65,7 @@ class App extends Component {
 
     imageElement.addEventListener('touchend', (event) => {
       console.log('touchend', event);
-      alert('touchend');
+      //alert('touchend');
 
       // Reset image to it's original format
       imageElement.style.transform = "";
