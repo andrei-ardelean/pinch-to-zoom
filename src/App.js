@@ -21,7 +21,7 @@ class App extends Component {
       console.log('touchstart', event);
       if (event.touches.length === 2) {
         event.preventDefault();
-        alert('cate touches la touchstart? ' + event.touches.length);
+        // alert('cate touches la touchstart? ' + event.touches.length);
 
         // Calculate where the fingers have started on the X and Y axis
         start.x = (event.touches[0].pageX + event.touches[1].pageX) / 2;
@@ -33,12 +33,12 @@ class App extends Component {
     imageElement.addEventListener('touchmove', (event) => {
       console.log('touchmove', event);
       if (event.touches.length === 2) {
-        alert('cate touches la touchmove? ' + event.touches.length);
+        // alert('cate touches la touchmove? ' + event.touches.length);
         event.preventDefault();
-        let scale;
+        alert(event.touches[0].pageX + ' ' + event.touches[0].pageY);
+        alert(event.touches[1].pageX + ' ' + event.touches[1].pageY);
 
-        // Safari provides event.scale as two fingers move on the screen
-        // For other browsers just calculate the scale manually
+        let scale;
         if (event.scale) {
           scale = event.scale;
         } else {
@@ -58,7 +58,7 @@ class App extends Component {
         // Transform the image to make it grow and move with fingers
         const transform = `translate3d(${deltaX}px, ${deltaY}px, 0) scale(${imageElementScale})`;
         imageElement.style.transform = transform;
-        // imageElement.style.WebkitTransform = transform;
+        imageElement.style.WebkitTransform = transform;
         imageElement.style.zIndex = "9999";
       }
     });
