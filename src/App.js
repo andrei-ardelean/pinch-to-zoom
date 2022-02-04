@@ -15,13 +15,12 @@ class App extends Component {
     console.log(imageElement);
 
     let imageElementScale = 1;
-    let start = {};
+    const start = {};
 
     imageElement.addEventListener('touchstart', (event) => {
       console.log('touchstart', event);
       if (event.touches.length === 2) {
         event.preventDefault();
-        // alert('cate touches la touchstart? ' + event.touches.length);
 
         // Calculate where the fingers have started on the X and Y axis
         start.x = (event.touches[0].pageX + event.touches[1].pageX) / 2;
@@ -33,10 +32,7 @@ class App extends Component {
     imageElement.addEventListener('touchmove', (event) => {
       console.log('touchmove', event);
       if (event.touches.length === 2) {
-        // alert('cate touches la touchmove? ' + event.touches.length);
         event.preventDefault();
-        //alert(event.touches[0].pageX + ' ' + event.touches[0].pageY);
-        //alert(event.touches[1].pageX + ' ' + event.touches[1].pageY);
 
         let scale;
         if (event.scale) {
@@ -44,7 +40,6 @@ class App extends Component {
         } else {
           const deltaDistance = this.distanceBetweenTouches(event);
           scale = deltaDistance / start.distance;
-          // alert(deltaDistance + ', ' + start.distance + ', ' + scale);
         }
 
         imageElementScale = Math.min(Math.max(1, scale), 4);
@@ -52,8 +47,6 @@ class App extends Component {
         // Calculate how much the fingers have moved on the X and Y axis
         const deltaX = (((event.touches[0].pageX + event.touches[1].pageX) / 2) - start.x) * 2; // x2 for accelarated movement
         const deltaY = (((event.touches[0].pageY + event.touches[1].pageY) / 2) - start.y) * 2; // x2 for accelarated movement
-
-        //alert(deltaX + ', ' + deltaY + ', ' + imageElementScale);
 
         // Transform the image to make it grow and move with fingers
         const transform = `translate3d(${deltaX}px, ${deltaY}px, 0) scale(${imageElementScale})`;
@@ -65,7 +58,6 @@ class App extends Component {
 
     imageElement.addEventListener('touchend', (event) => {
       console.log('touchend', event);
-      //alert('touchend');
 
       // Reset image to it's original format
       imageElement.style.transform = "";
