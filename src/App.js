@@ -11,7 +11,7 @@ class App extends Component {
   }
 
   handlePinchToZoom = () => { // arrow function
-    const imageElement = document.getElementById('pinch');
+    let imageElement = document.getElementById('pinch');
     console.log(imageElement);
 
     let imageElementScale = 1;
@@ -54,8 +54,7 @@ class App extends Component {
         if (event.scale) {
           scale = event.scale;
         } else {
-          const deltaDistance = this.distanceBetweenTouches(event); // aici crapa
-          alert('should perform transform11');
+          const deltaDistance = this.distanceBetweenTouches(event);
           scale = deltaDistance / start.distance;
         }
 
@@ -65,14 +64,13 @@ class App extends Component {
         const deltaX = (((event.touches[0].pageX + event.touches[1].pageX) / 2) - start.x) * 2; // x2 for accelarated movement
         const deltaY = (((event.touches[0].pageY + event.touches[1].pageY) / 2) - start.y) * 2; // x2 for accelarated movement
 
+        alert(deltaX + ', ' + deltaY + ', ' + imageElementScale);
 
         // Transform the image to make it grow and move with fingers
         const transform = `translate3d(${deltaX}px, ${deltaY}px, 0) scale(${imageElementScale})`;
         imageElement.style.transform = transform;
         // imageElement.style.WebkitTransform = transform;
         imageElement.style.zIndex = "9999";
-
-        alert('should perform transform2');
       }
     });
 
