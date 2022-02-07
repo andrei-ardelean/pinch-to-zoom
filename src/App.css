@@ -1,8 +1,12 @@
+body {
+  background: #18181A;
+}
+
 .App {
   text-align: center;
-  background: black;
-  height: calc(100vh - 120px);
-  padding: 60px 12px 60px;
+  background: #18181A;
+  padding: 50px 12px 12px;
+  margin: 0;
 }
 
 .App-logo {
@@ -40,11 +44,23 @@
   }
 }
 
+.section-label-container {
+  color: white;
+  text-align: left;
+}
+
+.national-id-preview-label {
+  color: white;
+  text-align: left;
+  margin-top: 24px;
+}
+
 .preview {
-  background: #18181A;
+  background: #2a2a2c;
   height: 200px;
   border-radius: 4px;
   text-align: center;
+  margin-top: 24px;
   position: relative;
 }
 

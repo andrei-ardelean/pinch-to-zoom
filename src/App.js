@@ -10,8 +10,8 @@ class App extends Component {
     return Math.hypot(x, y);
   }
 
-  handlePinchToZoom = () => { // arrow function
-    let imageElement = document.getElementById('pinch');
+  handlePinchToZoom = (event) => { // arrow function
+    let imageElement = document.getElementById(event.target.id);
     console.log(imageElement);
 
     let imageElementScale = 1;
@@ -69,12 +69,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <div className="section-label-container">National ID</div>
+        <div className="national-id-preview-label">National ID front</div>
         <div className="preview">
         <img
-          // src="https://s3.amazonaws.com/static-wiseup-blog.gazetadopovo.com.br/wp-content/uploads/2020/03/05180307/Ronaldinho-688x400.jpg"
           src="https://templatelab.com/wp-content/uploads/2017/08/proof-of-funds-letter-template-09.jpg"
-          alt="document"
-          id="pinch"
+          alt="document-front"
+          id="front"
+          onLoad={this.handlePinchToZoom}
+        />
+        </div>
+        <div className="national-id-preview-label">National ID back</div>
+        <div className="preview">
+        <img
+          src="https://s3.amazonaws.com/static-wiseup-blog.gazetadopovo.com.br/wp-content/uploads/2020/03/05180307/Ronaldinho-688x400.jpg"
+          alt="document-back"
+          id="back"
           onLoad={this.handlePinchToZoom}
         />
         </div>
