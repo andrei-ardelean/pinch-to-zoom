@@ -14,6 +14,8 @@ class App extends Component {
     let imageElement = document.getElementById(event.target.id);
     console.log(imageElement);
 
+    let imageLayer = document.getElementById(event.target.id + "-layer");
+
     let imageElementScale = 1;
     const start = {};
 
@@ -51,6 +53,10 @@ class App extends Component {
         imageElement.style.transform = transform;
         imageElement.style.WebkitTransform = transform;
         imageElement.style.zIndex = "9999";
+
+        // Set full width and height for image layer
+        imageLayer.style.width = "100vw";
+        imageLayer.style.height = "100vh";
       }
     });
 
@@ -60,32 +66,42 @@ class App extends Component {
       imageElement.style.transform = "";
       imageElement.style.WebkitTransform = "";
       imageElement.style.zIndex = "";
+
+      // Reset image layer width and height
+      imageLayer.style.width = "0";
+      imageLayer.style.height = "0";
     });
   }
 
   render() {
     return (
       <div className="App">
-      <div className="section-label-container">National ID</div>
-        <div className="national-id-preview-label">National ID front</div>
-        <div className="preview">
-        <img
-          src="https://templatelab.com/wp-content/uploads/2017/08/proof-of-funds-letter-template-09.jpg"
-          alt="document-front"
-          id="front"
-          onLoad={this.handlePinchToZoom}
-        />
-        </div>
-        <div className="national-id-preview-label">National ID back</div>
-        <div className="preview">
-        <img
-          src="https://s3.amazonaws.com/static-wiseup-blog.gazetadopovo.com.br/wp-content/uploads/2020/03/05180307/Ronaldinho-688x400.jpg"
-          alt="document-back"
-          id="back"
-          onLoad={this.handlePinchToZoom}
-        />
-        </div>
-      </div>
+        <div className="main-container">
+          <div className="upload-documents-container">
+            <div className="section-label-container">National ID</div>
+            <div className="national-id-preview-label">National ID front</div>
+            <div className="preview">
+              <img
+                src="https://templatelab.com/wp-content/uploads/2017/08/proof-of-funds-letter-template-09.jpg"
+                alt="document-front"
+                id="front-image"
+                onLoad={this.handlePinchToZoom}
+              />
+              <div id="front-image-layer" className="layer"></div>
+            </div>
+            <div className="national-id-preview-label">National ID back</div>
+            <div className="preview">
+              <img
+                src="https://s3.amazonaws.com/static-wiseup-blog.gazetadopovo.com.br/wp-content/uploads/2020/03/05180307/Ronaldinho-688x400.jpg"
+                alt="document-back"
+                id="back-image"
+                onLoad={this.handlePinchToZoom}
+              />
+              <div id="back-image-layer" className="layer"></div>
+            </div>
+          </div>
+        </div>    
+      </div> 
     );
   }
 }

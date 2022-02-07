@@ -5,7 +5,7 @@ body {
 .App {
   text-align: center;
   background: #18181A;
-  padding: 50px 12px 12px;
+  padding: 40px 0px 12px;
   margin: 0;
 }
 
@@ -42,6 +42,14 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.main-container {
+
+}
+
+.upload-documents-container {
+  padding: 12px;
 }
 
 .section-label-container {
@@ -89,4 +97,14 @@ body {
   .preview img {
     height: 120px;
   }
+}
+
+.layer {
+  background: rgba(24, 24, 26, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 0;
+  height: 0;
 }
