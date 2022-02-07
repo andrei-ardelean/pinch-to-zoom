@@ -18,7 +18,6 @@ class App extends Component {
     const start = {};
 
     imageElement.addEventListener('touchstart', (event) => {
-      console.log('touchstart', event);
       if (event.touches.length === 2) {
         event.preventDefault();
 
@@ -30,7 +29,6 @@ class App extends Component {
     });
 
     imageElement.addEventListener('touchmove', (event) => {
-      console.log('touchmove', event);
       if (event.touches.length === 2) {
         event.preventDefault();
 
@@ -56,8 +54,7 @@ class App extends Component {
       }
     });
 
-    imageElement.addEventListener('touchend', (event) => {
-      console.log('touchend', event);
+    imageElement.addEventListener('touchend', () => {
 
       // Reset image to it's original format
       imageElement.style.transform = "";
